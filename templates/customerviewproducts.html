@@ -1,0 +1,74 @@
+{% extends 'customerheader.html'  %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+  {% block content %}
+  <style type="text/css">
+		table, tr, td, th{
+		border:1px solid black;
+		border-collapse:collapse;
+		text-align:center;
+		font-size:18px;
+		}
+		table{
+		width:100%;
+		}
+		th,td{
+		height:50px;
+		}
+	</style>
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Customer View Products</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/customermainpage">Home</a></li>
+            <li class="current">Customer View Products</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+{% for row in data %}
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item d-flex position-relative h-100">
+              <div>
+                <h4 class="title">Name : {{row.ProductName}}</h4>
+                <p class="description">Type : {{row.ProductType}}</p>
+                <p class="description">Description : {{row.Description}}</p>
+                <p class="description">Quantity : {{row.Quantity}}</p>
+                <p class="description">Price : {{row.Price}}</p>
+                <p class="description">
+                <img src="static/uploads/{{row.FileName}}" width="200px" height="200px"/>
+                <br>
+                <h4 class="title"><a href="customeraddtocart?id={{row.id}}">
+                Add To Cart
+              </a></h4>
+                </p>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+{% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+      </main>
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+{% extends 'customerheader.html'  %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+  {% block content %}
+  <style type="text/css">
+		table, tr, td, th{
+		border:1px solid black;
+		border-collapse:collapse;
+		text-align:center;
+		font-size:18px;
+		}
+		table{
+		width:100%;
+		}
+		th,td{
+		height:50px;
+		}
+	</style>
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Customer View Add To Cart Page</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/customermainpage">Home</a></li>
+            <li class="current">Customer View Add To Cart Page</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+        <!-- About 2 Section -->
+    <section id="about-2" class="about-2 section">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12">
+            <h3 class="pt-0 pt-lg-5">Customer View AddTo Cart Page</h3>
+
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+
+              <div class="tab-pane fade show active" id="about-2-tab1">
+
+                <p class="fst-italic">
+                  <table>
+                    <thead>
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Product Type</th>
+                        <th>Required Qty</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Payment Status</th>
+                        <th>Make Appointment</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.UserId}}</td>
+                        <td>{{row.ProductName}}</td>
+                        <td>{{row.ProductType}}</td>
+                        <td>{{row.ReqQuantity}}</td>
+                        <td>{{row.Price}}</td>
+                        <td>{{row.Total}}</td>
+                        <td>{{row.PaymentStatus}}</td>
+                        <td>
+                          <a href="/customermakeappointment?id={{row.id}}">
+                            Make Appointment
+                          </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <th colspan="5">
+                            <!--<a href="/usermakepayment?total={{total}}">Make Payment</a>-->
+                            {% if total>0 %}
+                            <button class="btn" id="pay-btn" style="background-color:red;color:white;">Make Payment</button>
+                            {% endif %}
+                        </th>
+                        <th>Total Amt</th>
+                        <th>{{total}}</th>
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+              </div><!-- End Tab 1 Content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /About 2 Section -->
+</main>
+<!-- Razorpay's Javascript code. -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    var options = {
+
+      // Enter the Key ID generated from the Dashboard
+      key: "{{ context.razorpay_merchant_key }}",
+
+      // Amount is in currency subunits.
+      // Default currency is INR. Hence,
+      // 50000 refers to 50000 paise
+      amount: "{{ context.razorpay_amount }}",
+      currency: "{{ context.currency }}",
+
+      // Your/store name.
+      name: "Razorpay",
+
+      // Pass the `id` obtained in the response of Step 1
+      order_id: "{{ context.razorpay_order_id }}",
+      callback_url: "{{ context.callback_url }}",
+    };
+
+    // initialise razorpay with the options.
+    var rzp1 = new Razorpay(options);
+
+    // add event listener to the payment button.
+    document.getElementById("pay-btn").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+{% endblock %}
+</body>
+
+</html>

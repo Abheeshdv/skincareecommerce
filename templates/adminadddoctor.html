@@ -1,0 +1,84 @@
+{% extends 'adminheader.html'  %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+  {% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">New Doctor</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/adminmainpage">Home</a></li>
+            <li class="current">New Doctor</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <form action="/adminadddoctor" method="post" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-12">
+                  {{msg}}
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="fname" class="form-control" placeholder="First Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="text" class="form-control" name="lname" placeholder="Last Name" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="uname" class="form-control" placeholder="Login Name" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="password" class="form-control" name="pwd" placeholder="Password" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="phnum" class="form-control" placeholder="Phone Number" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="address" rows="6" placeholder="Address" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <br>
+                  <button type="submit">New Doctor</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+      </main>
+{% endblock %}
+</body>
+
+</html>

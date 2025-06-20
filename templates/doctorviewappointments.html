@@ -1,0 +1,108 @@
+{% extends 'doctorheader.html' %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+
+<body>
+  {% block content %}
+  <style type="text/css">
+    table,
+    tr,
+    td,
+    th {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    th,
+    td {
+      height: 50px;
+    }
+  </style>
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Doctor View Appointments</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/doctormainpage">Home</a></li>
+            <li class="current">Doctor View Appointments</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- About 2 Section -->
+    <section id="about-2" class="about-2 section">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12">
+            <h3 class="pt-0 pt-lg-5">Doctor View Appointments Page</h3>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="about-2-tab1">
+                <p class="fst-italic">
+                <table>
+                  <thead>
+                    <tr>                        
+                      <th>Customer Id</th>
+                      <th>Doctor Id</th>
+                      <th>Doctor Name</th>
+                      <th>PhoneNumber</th>
+                      <th>EmailId</th>
+                      <th>Appointment Date</th>
+                      <th>Appointment Time</th>
+                      <th colspan="2">Doctor Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in data %}
+                    <tr>
+                      <td>{{row.UserId}}</td>
+                        <td>{{row.DoctorId}}</td>
+                        <td>{{row.FirstName}} &nbsp; {{row.LastName}}</td>
+                        <td>{{row.PhoneNumber}}</td>
+                        <td>{{row.EmailId}}</td>
+                        <td>{{row.AppointDate}}</td>
+                        <td>{{row.AppointTime}}</td>
+                      {%if row.DoctorStatus == "RequestSent" %}
+                      <td>
+                        <a href="doctorupdatestatus?id={{row.id}}&status=Accepted">Accept Request</a>
+                      </td>
+                      <td>
+                        <a href="doctorupdatestatus?id={{row.id}}&status=Rejected">Reject Request</a>
+                      </td>
+                      {%else%}
+                      <td colspan="2">
+                      {{row.DoctorStatus}}
+                      </td>
+                      {% endif %}
+                      </td>                      
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                </p>
+              </div><!-- End Tab 1 Content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /About 2 Section -->
+
+  </main>
+  {% endblock %}
+</body>
+
+</html>

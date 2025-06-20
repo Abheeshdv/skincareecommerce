@@ -1,0 +1,126 @@
+{% extends 'customerheader.html'  %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+<body>
+  {% block content %}
+  <script type="text/javascript">
+    function calcfunc()
+    {
+        var aqty = document.getElementById('qty').value;
+        var reqqty = document.getElementById('reqqty').value;
+        var price = document.getElementById('price').value;
+        if(reqqty == '' || price=='')
+        {
+            document.getElementById('total').value="0";
+        }
+        else if(parseInt(reqqty) > parseInt(aqty))
+        {
+            document.getElementById('total').value="0";
+            alert("Sorry Req Qty > Available Qty");
+        }
+        else
+        {
+            qty = parseInt(reqqty);
+            amt = parseInt(price);
+            document.getElementById('total').value=(qty*amt);
+        }
+    }
+</script>
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Customer Add To Cart</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/customermainpage">Home</a></li>
+            <li class="current">Customer Add To Cart</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <form action="/customeraddtocart1" method="post" data-aos="fade-up" data-aos-delay="200"
+            enctype="multipart/form-data">
+              <div class="row gy-4">
+
+                <div class="col-md-12">
+                  {{msg}}
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="pid" class="form-control" placeholder="Product Id" required=""
+                  value="{{data.id}}">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="pname" class="form-control" placeholder="Product Name" required=""
+                  value="{{data.ProductName}}">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="text" name="ptype" class="form-control" placeholder="Product Type" required=""
+                  value="{{data.ProductType}}">
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="qty" class="form-control" placeholder="Quantity" required=""
+                  value="{{data.Quantity}}" id="qty">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="text" class="form-control" name="price" placeholder="Price" required=""
+                  value="{{data.Price}}" id="price">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="text" class="form-control" name="reqqty" placeholder="Req Qty" id="reqqty"
+                  onkeyup="calcfunc()">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="text" class="form-control" name="total" placeholder="Total" required=""
+                  readonly id="total">
+                </div>
+
+                <div class="col-md-6 ">
+                  <img src="static/uploads/{{data.FileName}}" width="200px" height="200px"/>
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="description" rows="6" placeholder="Description" required="">
+                    {{data.Description}}
+                  </textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <br>
+
+                  <button type="submit">Add To Cart</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+      </main>
+{% endblock %}
+</body>
+
+</html>
