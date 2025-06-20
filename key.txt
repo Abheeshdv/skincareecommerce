@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "onlineskincare",
+  "private_key_id": "11609f5428b161fe75a4a4ed67a43ce86e5652ca",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCEKTGStA/QYyhk\npWWYv7AeWv9R6sK+H0bzjjhf5poOU2t5hplNgpnkdm+EFWn800unMXzwVzi63Ncd\n82pk0u5I0O67ewi5mchaTXRU2+yKTDI7i+UV25/TUPS9OuSkkbAlRk/5/usC5UVp\nPTAAiHvIEX4QZEpO6sLBuWKY3gC8VjiCDy8/DQbSKVtFkWZ6scBght4UGf8IrLIV\nfoav+Ey4tlmSHCMY43q7Le+afcJiRA1mTxNSwwJzHXzXhXMShizzYdP3gkrl9D7S\nZvhgy2atsDlCD3+I1/NamERfYwdCvgfcb3bk478FyX3sjJqhWG2Pv81skv1opQAD\nMbuZI8vjAgMBAAECggEAGT8jTLKgGL9wfnWIKHtp4gqhHp15sUcZTzqac1uCj30J\nGXCIhaGO03F6kSFkG1uj5p8SDnmjCTNZ1stixjrzMS7UhDUXMBl8CCAmunU+xRaU\nPALX8up/KCedcS64ceWw4BYD/i5f57Azp8x8CIYKG2iYC/qUpWm8ZbSL7MbwHgoW\nPz/YX9KZHDd0IqP97bqLPJt+mLlJWbJPikVrSAkvAIGgXGYDg8UmvjnRi0Zyu3yQ\n00F4hHBWjVAh22HuCt1SZPsrU4vJMrvJIW5EpXfO5A1f8Cp7+wnutZFsV5eJ3PLm\ny/+mNylaku7I20pJd1tizCAx0jXzkqKWdaWmncVDlQKBgQC5N0j80IrT/9vIJfSM\nOkhdn0UNm0nvXC0yutqEcMhvPguiFdyt0zflaSYM9y2wF77wsoc2Cpt7VTNUnnE8\nrFX8IPGykEQJVCgDawJgMz06JEzvTS5inXe0MTI5NNF8X9WKcQcwAaqkrGgUbZLx\njguQIu/2dQzYyBtvBmtGAaRkZwKBgQC2qzx5/ILQNt2QItnjgpUQSN052MSRYGBu\nlb8pq/N9ydQ9RDudmahNFG38xMlWuNTVOCfaN2ur2Ul+L70QcQSunM/CjOVk15PH\nEfkbgETUW2pDC1U8F5OJJJcxRWDggLigSR3xlPy5n68ZRs0mYN+GmifcEhScAvYF\nagG5B/7PJQKBgCWU9DhoUGMn/X6lRPPXN6vXj3ltUxlAiONMSt6oy+LWoiGncfnL\nbAIezdu/pAOhLdtFPm5WxKnH5fx7kdqP1XqtbJ2g7E1ASEY5RmgivX+4seu0q37T\nGOD1Qo2dDAzCnV/UA3NYQznaydurSC+/dNUwYaSOp6atI/PpR4cS+jptAoGAEe4z\nDIJV0Nxh2UEihCuQOD3+wSve96ovLQuz7QI87279T1pAQ9MOayqDNVmXrdSMx7Uw\nbEIeZor4pNNIyrFdVUp9NkqgRcrHbbX87s8jcnjasGQPZMunpsGZubNmtALOnKUw\ntEL8n7fl9yQ1BPxjVJITMY3wyfOcdKGYM7JuN6UCgYEAhT2YUQ9HMjBd2vfKxnT9\neZAV7tXaJC+ZRHRehuVs7JAW+PIs6KL/wqnNHKUlbV563+DN8BTd3zkNHS+Bj/jy\n4xW3PqQWJtD1jIdX+A9w8AhNW1ljcdQtkyesa0nlEjdsuHmHQcNGHXviqQwFTet3\nNX7lt2t2NTOL3D5SKkFaUoQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@onlineskincare.iam.gserviceaccount.com",
+  "client_id": "118326912484480565060",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40onlineskincare.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
